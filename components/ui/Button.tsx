@@ -3,8 +3,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils/cn";
 
 const variantClasses: Record<string, string> = {
-  default: "bg-primary text-primary-foreground hover:bg-primary/90",
-  outline: "border border bg-white hover:bg-[#eeeeee]/90 hover:text-browm",
+  default: "bg-white text-black hover:bg-white/90",
+  outline: "border border bg-white/20 hover:bg-white/30",
   secondary: "bg-background text-[#333333] hover:bg-background/80"
 };
 
