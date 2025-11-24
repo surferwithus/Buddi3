@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import heroImage from "@/assets/hero-image1.jpg";
-import { Search, BarChart } from "lucide-react";
+import { Search, BarChart3 } from "lucide-react";
 
 export default function HeroSection() {
     return (
@@ -17,16 +17,12 @@ export default function HeroSection() {
                     사랑이 필요한 유기동물에게 따스한 손길을 건네주세요
                 </p>
                 <div className="flex flex-row gap-4 justify-center items-center">
-                    <Button size="lg" variant="outline"
-                        className="text-lg bg-white hover:bg-[#eeeeee]/90 border-none text-[#5a4a3a] h-16 px-8"
-                        href="/about">
-                        <BarChart className="mr-2 h-6 w-6" />
+                    <Button href="/dashboard" size="md" variant="outline" className="text-xl px-8 py-6 h-auto bg-background/20 hover:bg-background/30 border-background text-background">
+                        <BarChart3 className="mr-2 h-10 w-10" />
                         유기동물 현황 보기
                     </Button>
-                    <Button size="lg" variant="outline" 
-                        className="text-lg bg-white hover:bg-[#eeeeee]/90 border-none text-[#5a4a3a] h-16 px-8"
-                        href="/search">
-                        <Search className="mr-2 h-6 w-6" />
+                    <Button href="/search" size="md" variant="outline" className="text-xl px-8 py-6 h-auto bg-background/20 hover:bg-background/30 border-background text-background">
+                        <Search className="mr-2 h-10 w-10" />
                         입양 가능한 동물 찾기
                     </Button>
                 </div>
