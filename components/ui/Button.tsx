@@ -1,64 +1,62 @@
+import React from "react";
 import Link from "next/link";
-import { ReactNode } from "react";
 import { cn } from "@/lib/utils/cn";
 
-interface ButtonProps {
-  children: ReactNode;
-  href?: string; // 링크 주소 (있으면 Link로 변환)
-  onClick?: () => void; // 클릭 이벤트
-  variant?: "primary" | "secondary" | "outline" | "ghost" | "icon";
-  size?: "sm" | "md" | "lg";
-  className?: string;
-  type?: "button" | "submit" | "reset";
+const variantClasses: Record<string, string> = {
+  default: "bg-primary text-primary-foreground hover:bg-primary/90",
+  primary: "bg-primary text-primary-foreground hover:bg-primary/90",
+  destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+  outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+  secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+  ghost: "hover:bg-accent hover:text-accent-foreground",
+  link: "text-primary underline-offset-4 hover:underline",
+};
+
+const sizeClasses: Record<string, string> = {
+  default: "h-10 px-4 py-2",
+  sm: "h-9 rounded-md px-3",
+  lg: "h-11 rounded-md px-8",
+  icon: "h-10 w-10",
+};
+
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  variant?: keyof typeof variantClasses;
+  size?: keyof typeof sizeClasses;
+  href?: string;
+  asChild?: boolean;
 }
 
-// variant별 스타일
-const variantStyles = {
-  primary: "bg-orange-400 text-white hover:bg-orange-300", // 파란 배경
-  secondary: "bg-gray-600 text-white hover:bg-gray-700", // 회색 배경
-  outline: "border border-blue-600 text-blue-600 hover:bg-blue-50", // 테두리만
-  ghost: "text-gray-700 hover:bg-gray-100", // 배경 없음
-  icon: "bg-[#a88e62] text-white hover:bg-[#8d7a55] rounded-full p-2" // 아이콘
-};
+export const Button = React.forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
+  ({ variant = "default", size = "default", className, href, asChild, children, ...props }, ref) => {
+    const baseClasses = cn(
+      "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+      variantClasses[variant],
+      sizeClasses[size],
+      className
+    );
 
-// size별 스타일
-const sizeStyles = {
-  sm: "px-3 py-1.5 text-sm", // 작은 버튼
-  md: "px-4 py-2 text-base", // 중간 버튼
-  lg: "px-6 py-3 text-lg", // 큰 버튼
-};
+    if (href) {
+      return (
+        <Link
+          href={href}
+          className={baseClasses}
+          ref={ref as React.ForwardedRef<HTMLAnchorElement>}
+        >
+          {children}
+        </Link>
+      );
+    }
 
-export default function Button({
-  children,
-  href,
-  onClick,
-  variant = "primary",
-  size = "md",
-  className,
-  type = "button",
-}: ButtonProps) {
-  const baseClasses = "inline-flex items-center justify-center rounded-md transition-colors font-medium";
-
-  const classes = cn(
-    baseClasses, // 기본 스타일
-    variantStyles[variant], // variant 스타일
-    sizeStyles[size], // 크기 스타일
-    className // 추가 클래스
-  );
-
-  // href가 있으면 Link 컴포넌트로 렌더링
-  if (href) {
     return (
-      <Link href={href} className={classes}>
+      <button
+        className={baseClasses}
+        ref={ref as React.ForwardedRef<HTMLButtonElement>}
+        {...props}
+      >
         {children}
-      </Link>
+      </button>
     );
   }
+);
 
-  // href가 없으면 일반 button 태그로 렌더링
-  return (
-    <button type={type} onClick={onClick} className={classes}>
-      {children}
-    </button>
-  );
-}
+Button.displayName = "Button";

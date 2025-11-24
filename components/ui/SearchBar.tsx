@@ -2,7 +2,7 @@
 
 import { Search } from "lucide-react";
 import React from "react";
-import Button from "@/components/ui/Button"
+import { Button } from "@/components/ui/Button"
 
 interface SearchBarProps {
     placeholder: string;

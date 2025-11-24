@@ -8,7 +8,7 @@ import SearchBar from "@/components/ui/SearchBar";
 import Pagination from "@/components/ui/Pagination"
 import { pets } from "@/mock-data/pets";
 
-export default function Detail() {
+export default function Search() {
     return (
         <div className="min-h-screen bg-[#f9f8F6] text-black text-center">
             <Header />
