@@ -8,13 +8,15 @@ export default function Header() {
     return (
         <header className="flex justify-between border border-[#7c7069]/20 w-full items-start px-3 py-2 pb-3">
             <div className="flex items-center pl-2 pt-1 gap-2">
-                <Image
-                    src={Logo}
-                    alt="로고"
-                    width={100}
-                    height={100}
-                    priority
-                />
+                <Link href="/">
+                    <Image
+                        src={Logo}
+                        alt="로고"
+                        width={100}
+                        height={100}
+                        priority
+                    />
+                </Link>
             </div>
 
             <nav className="flex items-end gap-8 mt-4 mr-10">
