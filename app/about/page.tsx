@@ -11,9 +11,9 @@ export default function About() {
     return (
         <div className="min-h-screen bg-background">
             <Header />
-            <div className="container mx-auto px-20 py-16">
+            <div className="container mx-auto px-20 py-10">
                 <div className="flex flex-col justify-center items-center pb-20">
-                    <h1 className="text-5xl font-bold pb-8 text-orange">
+                    <h1 className="text-[50px] font-bold pb-5 text-orange">
                         Buddi3는
                     </h1>
                     <p className="text-brown text-center text-[21px]">
