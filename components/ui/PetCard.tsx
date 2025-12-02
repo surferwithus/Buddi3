@@ -27,6 +27,15 @@ export default function PetCard({
     status,
     className,
 }: PetCardProps) {
+    const readableTags = tags.map((tag) => {
+        if (tag === "M") return "수컷";
+        if (tag === "F") return "암컷";
+        if (tag === "Q") return "미상";
+        if (tag === "Y") return "중성화 완료";
+        if (tag === "N") return "중성화 미완";
+        return tag;
+      });
+
     return (
         <div className=
             {cn("bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow", className)}>
@@ -70,13 +79,13 @@ export default function PetCard({
                     </li>
                     <li className="flex items-center gap-2">
                         <Scale className="w-4 h-4 text-[#a88e62]" />
-                        {weight}kg
+                        {weight}
                     </li>
                 </ul>
 
                 {/* tag */}
                 <div className="flex flex-wrap gap-2">
-                    {tags.map((tag) => (
+                    {readableTags.map((tag) => (
                         <span
                         key={tag}
                         className="text-xs border border-gray-300 rounded-full px-3 py-1 text-gray-700"
