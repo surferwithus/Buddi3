@@ -6,26 +6,7 @@ import { BarChart3, ArrowRight, Search, MapPin, Heart, Shield, Users } from "luc
 
 export default function Footer() {
     return (
-        // <footer className="bg-gray-100 text-gray-600 py-6 mt-10">
-        //     <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 px-6">
-        //         <p className="text-sm">
-        //         © {new Date().getFullYear()} 발자국 리포트. All rights reserved.
-        //         </p>
-
-        //         <nav className="flex gap-4">
-        //         <Link href="/privacy" className="hover:text-black transition-colors">
-        //             개인정보처리방침
-        //         </Link>
-        //         <Link href="/terms" className="hover:text-black transition-colors">
-        //             이용약관
-        //         </Link>
-        //         <Link href="/contact" className="hover:text-black transition-colors">
-        //             문의하기
-        //         </Link>
-        //         </nav>
-        //     </div>
-        // </footer>
-        <section className="py-24 bg-gradient-to-r from-orange to-green">
+      <section className="py-24 bg-gradient-to-r from-orange to-green">
         <div className="container mx-auto px-4 text-center text-white">
           <h2 className="text-5xl font-bold mb-6">
             지금 바로 시작하세요
