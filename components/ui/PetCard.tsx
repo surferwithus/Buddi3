@@ -34,15 +34,15 @@ export default function PetCard({
         if (tag === "Y") return "중성화 완료";
         if (tag === "N") return "중성화 미완";
         return tag;
-      });
+    });
 
     return (
         <div className=
             {cn("bg-white rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow", className)}>
-            
+
             {/* image */}
             <div className="w-full h-64 relative">
-                <Image 
+                <Image
                     src={imageSrc}
                     alt={breed}
                     fill
@@ -87,10 +87,10 @@ export default function PetCard({
                 <div className="flex flex-wrap gap-2">
                     {readableTags.map((tag) => (
                         <span
-                        key={tag}
-                        className="text-xs border border-gray-300 rounded-full px-3 py-1 text-gray-700"
+                            key={tag}
+                            className="text-xs border border-gray-300 rounded-full px-3 py-1 text-gray-700"
                         >
-                        {tag}
+                            {tag}
                         </span>
                     ))}
                 </div>
