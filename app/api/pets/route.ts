@@ -5,7 +5,7 @@ export async function GET() {
     try {
         const data = await fetchAbandonmentPublicData({
             pageNo: '1',
-            numOfRows: '9'
+            numOfRows: '100'
         });
 
         return NextResponse.json(data);

@@ -11,6 +11,8 @@ import Link from "next/link";
 export default function Search() {
     const [pets, setPets] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
+    const [currentPage, setCurrentPage] = useState(1);
+    const ITEMS_PER_PAGE = 9;
 
     useEffect(() => {
         const fetchPets = async () => {
@@ -55,6 +57,12 @@ export default function Search() {
         );
     });
 
+    const totalPages = Math.ceil(filteredPets.length / ITEMS_PER_PAGE);
+    const currentPets = filteredPets.slice(
+        (currentPage - 1) * ITEMS_PER_PAGE,
+        currentPage * ITEMS_PER_PAGE
+    );
+
     return (
         <div className="min-h-screen bg-[#f9f8F6] text-black text-center">
             <Header />
@@ -67,17 +75,24 @@ export default function Search() {
             <SearchBar
                 placeholder="품종, 지역, 색상, 상태 등으로 검색해보세요."
                 value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
+                onChange={(e) => {
+                    setSearchTerm(e.target.value);
+                    setCurrentPage(1);
+                }}
                 onSearch={() => { }}
             />
             <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-9 mx-[120px]">
-                {filteredPets.map((pet: any) => (
+                {currentPets.map((pet: any) => (
                     <Link key={pet.id} href={`/detail/${pet.id}`}>
                         <PetCard {...pet} />
                     </Link>
                 ))}
             </div>
-            <Pagination />
+            <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={setCurrentPage}
+            />
             <Footer />
         </div>
     )
