@@ -44,6 +44,18 @@ export default function Header() {
                 > 
                 소개
                 </Link>
+                <Link
+                    href="/guide"
+                    className="text-[#555] text-[19px] font-medium hover:text-orange transition-colors duration-200"
+                > 
+                입양 안내
+                </Link>
+                <Link
+                    href="/review"
+                    className="text-[#555] text-[19px] font-medium hover:text-orange transition-colors duration-200"
+                > 
+                입양 후기
+                </Link>
             </nav>
         </header>
     )
