@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { Button } from "@/components/ui/Button";
-import { BarChart3, ArrowRight, Search, MapPin, Heart, Shield, Users } from "lucide-react";
+import { BarChart3, ArrowRight, Search } from "lucide-react";
 
 export default function Footer() {
     return (
@@ -28,8 +28,8 @@ export default function Footer() {
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="text-xl px-8 py-6 h-auto bg-background/20 hover:bg-background/30 border-background text-background">
-              <Link href="/guide" className="inline-flex items-center justify-center gap-2">
-                입양 절차 알아보기
+              <Link href="/review" className="inline-flex items-center justify-center gap-2">
+                입양 후기 보러가기
                 <ArrowRight className="ml-2 h-6 w-6" />
               </Link>
             </Button>

@@ -15,7 +15,7 @@ export default function SearchBar({ placeholder, value, onChange, onSearch }: {
     onSearch?: () => void;
 }) {
     return (
-        <div className="relative flex flex-1 justify-center items-center w-full py-4">
+        <div className="relative flex flex-1 justify-center items-center w-full pt-4">
             <input className="w-full max-w-xl h-[45px] rounded-md outline-none border border-[#e0d6c5] py-[9px] pl-4 mr-3 mb-5 text-md outline-2 placeholder:text-brown/50"
                 placeholder={placeholder}
                 value={value}

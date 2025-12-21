@@ -3,19 +3,22 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import PetCard from "@/components/ui/PetCard";
+import PetCardSkeleton from "@/components/ui/PetCardSkeleton";
 
 export default function RecentPetSection() {
   const [recentPets, setRecentPets] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchPets = async () => {
+      setLoading(true);
       try {
         const res = await fetch('/api/pets');
         const data = await res.json();
 
         const items = data.response.body.items.item.map((pet: any) => ({
           id: pet.desertionNo,
-          imageSrc: pet.popfile1 ?? pet.popfile2 ?? pet.evntImg ?? null,
+          imageSrc: pet.popfile1 || pet.popfile2 || pet.evntImg || '/placeholder-pet.jpg',
           breed: pet.kindNm,
           location: pet.careAddr.split(" ").slice(0, 3).join(" "),
           color: pet.colorCd,
@@ -28,6 +31,8 @@ export default function RecentPetSection() {
         setRecentPets(items.slice(0, 3));
       } catch (error) {
         console.error("Failed to fetch pets:", error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -47,11 +52,17 @@ export default function RecentPetSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-          {recentPets.map((pet: any) => (
-            <Link key={pet.id} href={`/detail/${pet.id}`}>
-              <PetCard {...pet} />
-            </Link>
-          ))}
+          {loading ? (
+            Array.from({ length: 3 }).map((_, index) => (
+              <PetCardSkeleton key={index} />
+            ))
+          ) : (
+            recentPets.map((pet: any) => (
+              <Link key={pet.id} href={`/detail/${pet.id}`}>
+                <PetCard {...pet} />
+              </Link>
+            ))
+          )}
         </div>
       </div>
     </section>
