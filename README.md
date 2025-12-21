@@ -1,6 +1,5 @@
-# Buddi3 🐾
-
-반려동물 입양을 위한 웹 플랫폼입니다. 공공데이터포털의 유기동물 정보를 활용하여 보호소에 있는 반려동물을 검색하고 입양할 수 있도록 도와주는 서비스입니다.
+*2025-2 PNUCSE 웹응용프로그래밍 텀프로젝트*
+# Buddi3 🐾 : 유기동물 입양을 위한 웹 대시보드 플랫폼
 
 ## 링크
 
@@ -165,31 +164,3 @@ API 클라이언트는 `lib/api-client.ts`에 구현되어 있으며, Next.js AP
 - `GET /api/pets` - 반려동물 목록 조회
 - `GET /api/pets/[id]` - 특정 반려동물 상세 정보
 - `GET /api/shelters` - 보호소 목록 조회
-
-## 📝 스크립트
-
-- `npm run dev` - 개발 서버 실행
-- `npm run build` - 프로덕션 빌드
-- `npm run start` - 프로덕션 서버 실행
-- `npm run lint` - ESLint 실행
-
-## 🌐 환경 변수
-
-필요한 경우 `.env.local` 파일을 생성하여 환경 변수를 설정할 수 있습니다:
-
-```env
-# Google Maps API Key (필요한 경우)
-NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=your_api_key
-```
-
-## 📄 라이선스
-
-이 프로젝트는 개인 프로젝트입니다.
-
-## 🤝 기여
-
-이슈나 풀 리퀘스트를 환영합니다!
-
----
-
-Made with ❤️ for abandoned animals
