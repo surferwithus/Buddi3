@@ -42,45 +42,6 @@
 - **공공데이터포털 유기동물 공공 API** - 유기동물 정보
 - **공공데이터포털 보호소 API** - 보호소 정보
 
-## 🚀 시작하기
-
-### 필수 요구사항
-
-- Node.js 18 이상
-- npm 또는 yarn
-
-### 설치 및 실행
-
-1. 저장소 클론
-```bash
-git clone <repository-url>
-cd Buddi3
-```
-
-2. 의존성 설치
-```bash
-npm install
-```
-
-3. 개발 서버 실행
-```bash
-npm run dev
-```
-
-4. 브라우저에서 확인
-```
-http://localhost:3000
-```
-
-### 빌드
-
-프로덕션 빌드를 생성하려면:
-
-```bash
-npm run build
-npm start
-```
-
 ## 📁 프로젝트 구조
 
 ```
