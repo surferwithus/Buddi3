@@ -3,8 +3,8 @@
 
 ## 링크
 
-- [vercel 배포] https://buddi3.vercel.app
-- [Github Repository] https://github.com/surfwithus/Buddi3
+- [vercel 배포 링크](https://buddi3.vercel.app)
+- [Github Repository 링크](https://github.com/surfwithus/Buddi3)
 
 ## 📋 목차
 
