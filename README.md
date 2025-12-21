@@ -2,6 +2,11 @@
 
 반려동물 입양을 위한 웹 플랫폼입니다. 공공데이터포털의 유기동물 정보를 활용하여 보호소에 있는 반려동물을 검색하고 입양할 수 있도록 도와주는 서비스입니다.
 
+## 링크
+
+- [vercel 배포] https://buddi3.vercel.app
+- [Github Repository] https://github.com/surfwithus/Buddi3
+
 ## 📋 목차
 
 - [주요 기능](#주요-기능)
