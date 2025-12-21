@@ -24,25 +24,19 @@ export interface PetDetail {
 }
 
 export default function DetailPetCard({ pet }: { pet: PetDetail }) {
-     return (
+    return (
         <div className="w-full max-w-7xl mx-auto">
             <div className="bg-white rounded-3xl overflow-hidden shadow-lg">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                     {/* Left: Image */}
                     <div className="relative h-[300px] lg:h-auto bg-gray-100">
-                        {pet.imageSrc ? (
-                            <Image
-                                src={pet.imageSrc}
-                                alt={pet.breed}
-                                fill
-                                className="object-cover"
-                                priority
-                            />
-                        ) : (
-                            <div className="flex items-center justify-center h-full text-gray-400">
-                                이미지 없음
-                            </div>
-                        )}
+                        <Image
+                            src={pet.imageSrc || '/placeholder-pet.jpg'}
+                            alt={pet.breed}
+                            fill
+                            className="object-cover"
+                            priority
+                        />
                         <div className="absolute top-5 left-5">
                             <span className="px-5 py-2 bg-white/90 backdrop-blur-sm rounded-full text-[16px] font-semibold text-brown shadow-sm">
                                 {pet.status}

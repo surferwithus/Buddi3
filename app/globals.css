@@ -5,6 +5,33 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Brand Colors */
+  --orange: #ee7c2b;
+  --orange-mid: #f4ab77;
+  --orange-light: #faeee3;
+  --green: #28bd66;
+  --green-mid: #6fdd9d;
+  --green-light: #eef6e8;
+  --yellow: #fcdc23;
+  --brown: #5a4a3a;
+  --stone: #f4f3f0;
+
+  /* Chart Colors */
+  --chart-primary: var(--orange);
+  --chart-accent: var(--green);
+  --chart-secondary: var(--green-mid);
+  --chart-muted: var(--orange-mid);
+
+  /* Pie Chart Colors */
+  --pie-color-1: var(--orange);
+  --pie-color-2: var(--green);
+  --pie-color-3: var(--yellow);
+  --pie-color-4: var(--brown);
+
+  /* Pie Chart Alternative Colors */
+  --pie-alt-color-1: #ee7c2b;
+  --pie-alt-color-2: #28bd66;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -15,7 +42,23 @@
 }
 
 body {
-  background: var(--background);
+  background: #f9f8f6;
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }

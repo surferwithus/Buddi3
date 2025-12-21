@@ -10,7 +10,7 @@ export default function HeroSection() {
             </div>
 
             <div className="relative z-10 text-center text-white px-4">
-                <h1 className="text-5xl md:text-7xl font-bold mb-10 animate-fade-in">
+                <h1 className="text-5xl md:text-7xl font-black mb-10 animate-fade-in">
                     새로운 가족을 기다립니다
                 </h1>
                 <p className="text-xl md:text-2xl font-normal mb-20 mx-auto">

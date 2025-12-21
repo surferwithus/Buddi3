@@ -1,14 +1,20 @@
 import { NextResponse } from 'next/server';
 import { fetchAbandonmentPublicData } from '@/lib/api-client';
 
+export const revalidate = 300;
+
 export async function GET() {
     try {
         const data = await fetchAbandonmentPublicData({
             pageNo: '1',
-            numOfRows: '100'
+            numOfRows: '500'
         });
 
-        return NextResponse.json(data);
+        return NextResponse.json(data, {
+            headers: {
+                'Cache-Control': 'public, s-maxage=300, stale-while-revalidate=600',
+            },
+        });
     }
     catch (error: any) {
         console.error('API 호출 실패: ', error.message);

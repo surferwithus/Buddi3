@@ -43,7 +43,7 @@ export default function PetCard({
             {/* image */}
             <div className="w-full h-64 relative">
                 <Image
-                    src={imageSrc}
+                    src={imageSrc || '/placeholder-pet.jpg'}
                     alt={breed}
                     fill
                     className="object-cover"

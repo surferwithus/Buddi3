@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import { fetchAbandonmentPublicData } from '@/lib/api-client';
 
-// params에서 id를 추출하는 헬퍼 함수
 async function getParamsId(params: Promise<{ id: string }> | { id: string }): Promise<string> {
     if (params instanceof Promise) {
         const resolved = await params;
@@ -17,13 +16,11 @@ export async function GET(
     const id = await getParamsId(params);
 
     try {
-        // API가 desertionNo 필터링을 지원하지 않으므로, 목록을 가져와서 직접 찾습니다.
         const data = await fetchAbandonmentPublicData({
             numOfRows: '100',
             pageNo: '1'
         });
 
-        // API 응답 구조 확인 및 데이터 추출
         const items = data.response?.body?.items?.item;
 
         let pet = null;
@@ -42,7 +39,7 @@ export async function GET(
 
         const formattedPet = {
             id: pet.desertionNo,
-            imageSrc: pet.popfile1 ?? pet.popfile2 ?? pet.evntImg ?? null,
+            imageSrc: pet.popfile1 || pet.popfile2 || pet.evntImg || '/placeholder-pet.jpg',
             breed: pet.kindNm ?? pet.kindFullNm ?? pet.kindCd,
             location: pet.careAddr,
             color: pet.colorCd,
